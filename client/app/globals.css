@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/* Global reset */
+* {
+  box-sizing: border-box;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body styling same as HTML */
+body {
+  @apply bg-[#FAFAFA] text-slate-800 antialiased;
+}
+
+/* Text selection styling from HTML */
+::selection {
+  background: rgba(99, 209, 211, 0.3);
+  color: #4B1F4E;
+}
+button, nav{
+  font-family: 'Inter', sans-serif;
+}
+
+.font-inter{
+  font-family: 'Inter', sans-serif;
+}
+.font-julius{
+  font-family: 'Julius Sans One', sans-serif;
+}
+
