@@ -20,7 +20,7 @@ body {
   background: rgba(99, 209, 211, 0.3);
   color: #4B1F4E;
 }
-button, nav{
+button, nav, p, a{
   font-family: 'Inter', sans-serif;
 }
 
@@ -28,6 +28,10 @@ button, nav{
   font-family: 'Inter', sans-serif;
 }
 .font-julius{
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+h1, h2{
   font-family: 'Julius Sans One', sans-serif;
 }
 
