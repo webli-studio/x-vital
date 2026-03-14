@@ -1,10 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
-  // Unsplash domains for Image component
   images: {
-    domains: ["images.unsplash.com"],
-  },
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com"
+      },
+      {
+        protocol: "https",
+        hostname: "hoirqrkdgbmvpwutwuwj.supabase.co"
+      }
+    ]
+  }
 };
 
 export default nextConfig;
