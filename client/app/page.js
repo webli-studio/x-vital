@@ -5,6 +5,7 @@ import TimelineSection from "./heroSections/timelineSection.js";
 import ProgramsSection from "./heroSections/programsSection.js";
 import LifestyleGallery from "./heroSections/lifestyleGallery.js";
 import ExpertSection from "./heroSections/expertSection.js";
+import ConsultationSection from "./heroSections/consultationSection";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <ProgramsSection />
       <LifestyleGallery />
       <ExpertSection />
+      <ConsultationSection />
     </>
   );
 }
