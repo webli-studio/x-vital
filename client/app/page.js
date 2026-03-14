@@ -1,7 +1,8 @@
 import Hero from "./heroSections/hero";
-import ProblemSection from "./heroSections/problemSection";
-import ProtocolSection from "./heroSections/protocolSection";
-import TimelineSection from "./heroSections/timelineSection";
+import ProblemSection from "./heroSections/problemSection.js";
+import ProtocolSection from "./heroSections/protocolSection.js";
+import TimelineSection from "./heroSections/timelineSection.js";
+import ProgramsSection from "./heroSections/programsSection.js";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <ProblemSection />
       <ProtocolSection />
       <TimelineSection />
+      <ProgramsSection />
     </>
   );
 }
