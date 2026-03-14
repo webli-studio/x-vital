@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Inter, Julius_Sans_One } from "next/font/google";
 import Header from "./layout/header";
+import Footer from "./layout/footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className} ${julius.className} text-slate-800 bg-[#FAFAFA] antialiased`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
