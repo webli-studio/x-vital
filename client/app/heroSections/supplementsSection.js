@@ -150,7 +150,7 @@ export default function SupplementsSection() {
                   </span>
 
                   <button className="text-xs font-medium text-[#4B1F4E] border border-[#4B1F4E]/20 px-3 py-1.5 rounded-lg hover:bg-[#4B1F4E] hover:text-white transition-colors">
-                    Pre-order
+                    Coming Soon
                   </button>
 
                 </div>
