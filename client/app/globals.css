@@ -20,7 +20,7 @@ body {
   background: rgba(99, 209, 211, 0.3);
   color: #4B1F4E;
 }
-button, nav, p, a{
+button, nav, p, a, input{
   font-family: 'Inter', sans-serif;
 }
 

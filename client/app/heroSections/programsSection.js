@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { Icon } from "@iconify/react";
-
+import { useState } from "react";
+import LeadFormModal from "../components/leadFormModel";
 
 const programs = [
   {
@@ -19,101 +20,121 @@ const programs = [
     description:
       "Balanced for hormonal fluctuation, optimal recovery, and sustainable energy. Adaptive to the female biological cycle."
   }
-]; 
+];
 
 export default function ProgramsSection() {
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedGender, setSelectedGender] = useState(null);
+
+  const handleProgramClick = (title) => {
+
+    const gender = title.includes("Male") ? "male" : "female";
+
+    setSelectedGender(gender);
+    setModalOpen(true);
+
+  };
+
   return (
-    <section
-      id="programs"
-      className="py-24 bg-[#4B1F4E] relative overflow-hidden"
-    >
-      {/* Background Pattern */}
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage:
-            "radial-gradient(#63D1D3 1px, transparent 1px)",
-          backgroundSize: "30px 30px"
-        }}
-      ></div>
+    <>
+      <section
+        id="programs"
+        className="py-24 bg-[#4B1F4E] relative overflow-hidden"
+      >
+        {/* Background Pattern */}
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage:
+              "radial-gradient(#63D1D3 1px, transparent 1px)",
+            backgroundSize: "30px 30px"
+          }}
+        ></div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
 
-        {/* Heading */}
-        <div className="text-center mb-16">
+          {/* Heading */}
+          <div className="text-center mb-16">
 
-          <h2
-            className="text-3xl md:text-4xl tracking-tight font-semibold text-white mb-4"
-          >
-            Choose Your Program
-          </h2>
+            <h2 className="text-3xl md:text-4xl tracking-tight font-semibold text-white mb-4">
+              Choose Your Program
+            </h2>
 
-          <p className="text-white/70 text-base font-light max-w-xl mx-auto">
-            Select your biological baseline to begin the assessment. Our
-            algorithms adjust heavily based on endocrine differences.
-          </p>
+            <p className="text-white/70 text-base font-light max-w-xl mx-auto">
+              Select your biological baseline to begin the assessment. Our
+              algorithms adjust heavily based on endocrine differences.
+            </p>
 
-        </div>
+          </div>
 
-        {/* Cards */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {/* Cards */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
 
-          {programs.map((program, index) => (
-            <div
-              key={index}
-              className="group relative rounded-3xl overflow-hidden cursor-pointer bg-white"
-            >
+            {programs.map((program, index) => (
+              <div
+                key={index}
+                onClick={() => handleProgramClick(program.title)}
+                className="group relative rounded-3xl overflow-hidden cursor-pointer bg-white"
+              >
 
-              {/* Image Section */}
-              <div className="h-64 sm:h-80 overflow-hidden relative">
+                {/* Image Section */}
+                <div className="h-64 sm:h-80 overflow-hidden relative">
 
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent z-10"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent z-10"></div>
 
-                <Image
-                  src={program.image}
-                  alt={program.title}
-                  fill
-                  className="object-cover transform group-hover:scale-105 transition-transform duration-700"
-                />
+                  <Image
+                    src={program.image}
+                    alt={program.title}
+                    fill
+                    className="object-cover transform group-hover:scale-105 transition-transform duration-700"
+                  />
 
-                <div className="absolute bottom-6 left-6 z-20">
-                  <h3
-                    className={`text-3xl text-white font-semibold tracking-tight mb-1`}
-                  >
-                    {program.title}
-                  </h3>
+                  <div className="absolute bottom-6 left-6 z-20">
+                    <h3 className="text-3xl text-white font-semibold tracking-tight mb-1">
+                      {program.title}
+                    </h3>
+                  </div>
+
+                </div>
+
+                {/* Content */}
+                <div className="p-8">
+
+                  <p className="text-sm text-slate-500 font-light mb-6 leading-relaxed">
+                    {program.description}
+                  </p>
+
+                  <button className="w-full bg-slate-50 border border-slate-200 text-[#4B1F4E] font-medium py-3 rounded-xl flex items-center justify-center space-x-2 group-hover:bg-[#4B1F4E] group-hover:text-white group-hover:border-[#4B1F4E] transition-all duration-300">
+
+                    <span>Select Program</span>
+
+                    <Icon icon="solar:arrow-right-linear" className="text-lg" />
+
+                  </button>
+
                 </div>
 
               </div>
+            ))}
 
-              {/* Content */}
-              <div className="p-8">
+          </div>
 
-                <p className="text-sm text-slate-500 font-light mb-6 leading-relaxed">
-                  {program.description}
-                </p>
-
-                <button className="w-full bg-slate-50 border border-slate-200 text-[#4B1F4E] font-medium py-3 rounded-xl flex items-center justify-center space-x-2 group-hover:bg-[#4B1F4E] group-hover:text-white group-hover:border-[#4B1F4E] transition-all duration-300">
-
-                  <span>Select Program</span>
-
-                  <Icon icon="solar:arrow-right-linear" className="text-lg" />
-
-                </button>
-
-              </div>
-
-            </div>
-          ))}
+          {/* Hidden hint */}
+          <div className="hidden text-center mt-6 text-white/50 text-xs">
+            Selecting a program will open the secure assessment portal.
+          </div>
 
         </div>
+      </section>
 
-        {/* Hidden hint */}
-        <div className="hidden text-center mt-6 text-white/50 text-xs">
-          Selecting a program will open the secure assessment portal.
-        </div>
+      {/* Lead Capture Modal */}
+      <LeadFormModal
+        isOpen={modalOpen}
+        gender={selectedGender}
+        onClose={() => setModalOpen(false)}
+      />
 
-      </div>
-    </section>
+    </>
   );
 }
